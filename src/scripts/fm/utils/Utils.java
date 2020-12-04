@@ -116,7 +116,7 @@ public class Utils {
 		while (!isPlayerCloseTo(destination)) {
 			General.println(String.format("[FireMaker] Attempting to walk to (%s)", destination.toString()));
 			DaxWalker.walkTo(destination);
-			General.sleep(Numbers.FIVE_SECONDS, Numbers.EIGHT_SECONDS);
+			General.sleep(5000, 8000);
 		}
 		General.println(String.format("[FireMaker] Cancelling walk - We are already close to (%s)", destination.toString()));
 	}
@@ -140,7 +140,7 @@ public class Utils {
 	 * @return true/false
 	 */
 	public boolean isTimeElapsed(final long startTime, final long time) {
-		return (System.currentTimeMillis() - startTime) > time ? true : false;
+		return (System.currentTimeMillis() - startTime) > time;
 	}
 	
 	/**
@@ -154,7 +154,7 @@ public class Utils {
 
 		long start = System.currentTimeMillis();
 
-		while (!isTimeElapsed(start, Numbers.ONE_SECOND)) {
+		while (!isTimeElapsed(start, 1000)) {
 			if (Player.getAnimation() == animation) {
 				isAnimating = true;
 				break;

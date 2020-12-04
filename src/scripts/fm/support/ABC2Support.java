@@ -12,8 +12,6 @@ import org.tribot.api2007.Options;
 import org.tribot.api2007.Player;
 import org.tribot.api2007.types.RSTile;
 
-import scripts.fm.utils.Numbers;
-
 /**
  * 
  * AntiBanCompliance Support Class
@@ -31,18 +29,18 @@ public class ABC2Support extends ABCUtil {
 
 	private long startTime = System.currentTimeMillis();
 
-	private long activateEnergyTime = Numbers.FIVE_MINUTES;
-	private long attackStyleTime = Numbers.TEN_MINUTES;
-	private long cameraRotateTime = Numbers.THIRTY_FIVE_SECONDS;
-	private long combatCheckTime = Numbers.NINE_MINUTES;
-	private long examineTime = Numbers.TWENTY_MINUTES;
-	private long friendCheckTime = Numbers.THIRTEEN_MINUTES;
-	private long inventoryCheckTime = Numbers.SEVENTEEN_MINUTES;
-	private long mouseBreakTime = Numbers.FIFTEEN_MINUTES;
-	private long mouseSpeedTime = Numbers.TWENTY_SECONDS;
-	private long prayerCheckTime = Numbers.ELEVEN_MINUTES;
-	private long skillCheckTime = Numbers.TEN_MINUTES;
-	private long spellCheckTime = Numbers.TWELVE_MINUTES;
+	private long activateEnergyTime = 300000;
+	private long attackStyleTime = 600000;
+	private long cameraRotateTime = 35000;
+	private long combatCheckTime = 540000;
+	private long examineTime = 1200000;
+	private long friendCheckTime = 780000;
+	private long inventoryCheckTime = 1020000;
+	private long mouseBreakTime = 900000;
+	private long mouseSpeedTime = 20000;
+	private long prayerCheckTime = 660000;
+	private long skillCheckTime = 600000;
+	private long spellCheckTime = 720000;
 
 	private Random rand = new Random();
 
