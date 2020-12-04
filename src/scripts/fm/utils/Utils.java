@@ -56,15 +56,14 @@ public class Utils {
 	public boolean burnLogOnGround(final int log) {
 		General.println(String.format("[FireMaker] Burning (log %d)", log));
 
-		if (!inventoryContains(590) || !isItemClose(log, 10) || isPlayerPerformingAnimation(733)) {
+		if (!inventoryContains(IDs.TINDERBOX) || !isItemClose(log, 10) || isPlayerPerformingAnimation(IDs.FIREMAKING_ANIMATION_ID)) {
 			return false;
 		}
 
-		useItemOnGroundItem(590, log);
+		useItemOnGroundItem(IDs.TINDERBOX, log);
 
-		General.sleep(1800, 3000);
-
-		Timing.waitCondition(() -> !isPlayerPerformingAnimation(733), 30000);
+		General.sleep(1800, 3000); // Wait for animation to start
+		Timing.waitCondition(() -> !isPlayerPerformingAnimation(IDs.FIREMAKING_ANIMATION_ID), 30000);
 
 		return true;
 	}
@@ -87,8 +86,6 @@ public class Utils {
 
 		final boolean isUsed = DynamicClicking.clickRSGroundItem(destItems[0], 
 				String.format("%s %s -> %s", "Use", srcItem.getDefinition().getName(), destItems[0].getDefinition().getName()));
-
-		General.sleep(600, 1200);
 
 		return isUsed;
     }

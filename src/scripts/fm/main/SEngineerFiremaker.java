@@ -18,10 +18,11 @@ import org.tribot.script.interfaces.Painting;
 import scripts.fm.paint.FluffeesPaint;
 import scripts.fm.paint.PaintInfo;
 import scripts.fm.support.ABC2Support;
+import scripts.fm.utils.IDs;
 import scripts.fm.utils.Utils;
 
 @ScriptManifest(authors = {
-		"SEngineer" }, category = "Firemaking", name = "SEngineer's F2P Firemaker", version = 1.00, description = "F2P Firemaking", gameMode = 1)
+		"SEngineer" }, category = "Firemaking", name = "SEngineer's F2P Firemaker", version = 1.01, description = "F2P Firemaking", gameMode = 1)
 
 /**
  * 
@@ -34,7 +35,7 @@ import scripts.fm.utils.Utils;
  */
 public class SEngineerFiremaker extends Script implements PaintInfo, Painting {
 	
-	private final Double scriptVersion = 1.00;
+	private final Double scriptVersion = 1.01;
 	
 	private final FluffeesPaint display = new FluffeesPaint(
 			this, FluffeesPaint.PaintLocations.TOP_RIGHT_CHATBOX,
@@ -94,7 +95,7 @@ public class SEngineerFiremaker extends Script implements PaintInfo, Painting {
 	public void run() {
 		configure();
 		
-		if(!utils.inventoryContains(590)) {
+		if(!utils.inventoryContains(IDs.TINDERBOX)) {
 			updateScriptStatus("ERROR: No Tinderbox!");
 			return;
 		}
@@ -104,8 +105,8 @@ public class SEngineerFiremaker extends Script implements PaintInfo, Painting {
 
 		while (true) {
 			updateScriptStatus("Burning logs");
-			while(GroundItems.findNearest(10, 1511).length > 0) {
-				utils.burnLogOnGround(1511);
+			while(GroundItems.findNearest(10, IDs.REGULAR_LOGS).length > 0) {
+				utils.burnLogOnGround(IDs.REGULAR_LOGS);
 			}
 
 			updateScriptStatus("Hopping worlds");
