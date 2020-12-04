@@ -56,7 +56,7 @@ public class Utils {
 	public boolean burnLogOnGround(final int log) {
 		General.println(String.format("[FireMaker] Burning (log %d)", log));
 
-		if (!inventoryContains(590) || !isItemClose(log, 5) || isPlayerPerformingAnimation(733)) {
+		if (!inventoryContains(590) || !isItemClose(log, 10) || isPlayerPerformingAnimation(733)) {
 			return false;
 		}
 
@@ -78,7 +78,7 @@ public class Utils {
     public boolean useItemOnGroundItem(final int srcItemId, final int destItemId) {
     	final RSGroundItem[] destItems = GroundItems.find(destItemId);
     	
-    	if(inventoryContains(srcItemId) || destItems.length == 0) { 
+    	if(!inventoryContains(srcItemId) || destItems.length == 0) { 
     		return false; 
     	}
    

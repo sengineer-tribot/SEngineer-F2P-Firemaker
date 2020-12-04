@@ -10,7 +10,6 @@ import org.tribot.api2007.GroundItems;
 import org.tribot.api2007.Skills;
 import org.tribot.api2007.Skills.SKILLS;
 import org.tribot.api2007.WorldHopper;
-import org.tribot.api2007.types.RSGroundItem;
 import org.tribot.api2007.types.RSTile;
 import org.tribot.script.Script;
 import org.tribot.script.ScriptManifest;
@@ -101,20 +100,16 @@ public class SEngineerFiremaker extends Script implements PaintInfo, Painting {
 		}
 		
 		updateScriptStatus("Walking to Lumbridge Castle");
-		utils.walkTo(new RSTile(3209, 3219, 2));
+		utils.walkTo(new RSTile(3207, 3224, 2));
 
 		while (true) {
 			updateScriptStatus("Burning logs");
-			final RSGroundItem[] logs = GroundItems.findNearest(10, 1511);
-			if(logs.length > 0) {
-				for(int i = 0; i < logs.length; i++) {
-					utils.burnLogOnGround(1511);
-				}
+			while(GroundItems.findNearest(10, 1511).length > 0) {
+				utils.burnLogOnGround(1511);
 			}
-			else {
-				updateScriptStatus("Hopping worlds");
-				WorldHopper.changeWorld(WorldHopper.getRandomWorld(false));
-			}
+
+			updateScriptStatus("Hopping worlds");
+			WorldHopper.changeWorld(WorldHopper.getRandomWorld(false));
 			abc2Support.runAntiBan();
 		}
 	}
